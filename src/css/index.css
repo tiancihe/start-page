@@ -1,0 +1,92 @@
+html { font-family: Arial, Helvetica, sans-serif; }
+body { margin: 0; padding: 0; overflow: hidden; }
+
+/* specific rules */
+#router-view { margin-top: 15rem; }
+
+#todo-app { position: absolute; right: 1rem; bottom: 1rem; }
+
+/* global rules */
+.form {
+    text-align: center;
+    color: white;
+}
+
+.input {
+    display: block;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    background: transparent;
+    text-align: center;
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    text-align: center;
+    color: white;
+}
+
+.ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* vue transition */
+/* set delay for the leaving transition to finish */
+.fade-enter-active { transition: opacity 0.75s 0.75s; }
+.fade-leave-active { transition: opacity 0.75s; }
+.fade-enter, .fade-leave-to { opacity: 0; }
+
+/* media queries */
+@media screen and (max-width: 768px) {
+    html { font-size: 12px; }
+}
+
+/* Ripple effect */
+.btn-ripple {
+    position: relative;
+    overflow: hidden;
+}
+  
+.btn-ripple::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+    background: rgba(255, 255, 255, .5);
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1) translate(-50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+  
+.btn-ripple:focus:not(:active)::after {
+    animation: ripple-effect 1s ease-out;
+}
+  
+@keyframes ripple-effect {
+    0% {
+        transform: scale(0, 0);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(25, 25);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(40, 40);
+        opacity: 0;
+    }
+}
+
+/* semantic helper rules */
